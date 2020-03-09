@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:28:44 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/09 17:21:15 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/09 17:47:07 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,13 @@ int		get_pre(va_list va, const char *s, t_list *param)
 	return (i);
 }
 
-t_list	*get_param(va_list va, const char *s)
+void	get_param(va_list va, const char *s, t_list *param)
 {
 	int		i;
-	t_list	*param;
 
 	i = 1;
-	if (!(param = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
 	i = i + get_flag(s + i, param);
 	i = i + get_width(va, s + i, param);
 	i = i + get_pre(va, s + i, param);
 	param->type = s[i];
-	return (param);
 }
