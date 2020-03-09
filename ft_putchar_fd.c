@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 15:45:15 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/09 18:14:29 by avarnier         ###   ########.fr       */
+/*   Created: 2020/03/09 18:12:42 by avarnier          #+#    #+#             */
+/*   Updated: 2020/03/09 18:13:11 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int main()
+void	ft_putchar_fd(char c, int fd)
 {
-	ft_printf("sa marche %15d pas %c ok %*d", 15);
-	return (0);
+	write(fd, &c, 1);
 }
