@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 15:15:26 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/10 16:55:34 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/10 17:13:58 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	print_arg(va_list va, t_list *param)
 	if (param->type == 'p')
 	{
 		ft_putstr_fd("0x", 1);
-		return (ft_puthex_fd(va_arg(va, unsigned long), 1, "0123456789abcdef"));
+		return (2 + ft_puthex_fd(va_arg(va, unsigned long), 1, "0123456789abcdef"));
 	}
 	return (0);
 }

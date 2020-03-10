@@ -4,7 +4,7 @@
 int main()
 {
 	char *p;
-	printf("\n%d", ft_printf("%p", p));
-	printf("\n%d", printf("%p", p));
+	printf("\n%d\n", ft_printf("%p", p));
+	printf("\n%d\n", printf("%p", p));
 	return (0);
 }
