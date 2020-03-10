@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 18:12:42 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/10 15:24:50 by avarnier         ###   ########.fr       */
+/*   Created: 2020/03/10 15:08:12 by avarnier          #+#    #+#             */
+/*   Updated: 2020/03/10 15:09:39 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_fd(char c, int fd)
+int	ft_strlen(const char *s)
 {
-	write(fd, &c, 1);
-	return (1);
+	int i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

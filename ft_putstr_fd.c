@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 18:12:42 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/10 15:24:50 by avarnier         ###   ########.fr       */
+/*   Created: 2020/03/10 15:11:41 by avarnier          #+#    #+#             */
+/*   Updated: 2020/03/10 16:23:13 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_fd(char c, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, &c, 1);
-	return (1);
+	int	i;
+
+	i = ft_strlen(s);
+	write(fd, s, i);
+	return (i);
 }
