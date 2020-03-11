@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 15:15:26 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/10 17:13:58 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/11 12:20:33 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,93 @@ int	print_arg(va_list va, t_list *param)
 	if (param->type == 'p')
 	{
 		ft_putstr_fd("0x", 1);
-		return (2 + ft_puthex_fd(va_arg(va, unsigned long), 1, "0123456789abcdef"));
+		return (2 + ft_puthex_fd(va_arg(va, unsigned long),
+		1, "0123456789abcdef"));
 	}
 	return (0);
+}
+
+int	print_pre(t_list param)
+{
+	int	x;
+	int	count;
+
+	count = 0;
+	if (param.pre > param.len)
+	{
+		x = param.pre - param.len;
+		while (x > 0)
+		{
+			ft_putchar_fd('0', 1);
+			count++;
+			x--;
+		}
+	}
+	return (count);
+}
+
+int	print_wid(t_list param)
+{
+	int		x;
+	int		count;
+	char	c;
+
+	c = ' ';
+	count = 0;
+	if (param.flag == '-')
+		return (0);
+	if (param.flag == '0')
+		c = '0';
+	if (param.wid > param.pre && param.wid > param.len)
+	{
+		if (param.pre > param.len)
+			x = param.wid - param.pre;
+		if (param.len > param.pre)
+			x = param.wid - param.len;
+		while (x > 0)
+		{
+			ft_putchar_fd(c, 1);
+			count++;
+			x--;
+		}
+	}
+	return (count);
+}
+
+int	print_nwidth(t_list param)
+{
+	int		x;
+	int		count;
+
+	count = 0;
+	if (param.flag != '-')
+		return (0);
+	if (param.wid > param.pre && param.wid > param.len)
+	{
+		if (param.pre > param.len)
+			x = param.wid - param.pre;
+		if (param.len > param.pre)
+			x = param.wid - param.len;
+		while (x > 0)
+		{
+			ft_putchar_fd(' ', 1);
+			count++;
+			x--;
+		}
+	}
+	return (count);
+}
+
+int	print(va_list va, const char *s, t_list param)
+{
+	int	ret;
+
+	ret = 0;
+	get_param(va, s, &param);
+	get_len(va, &param);
+	print_wid(param);
+	ret = ret + print_pre(param);
+	ret = ret + print_arg(va, &param);
+	ret = ret + print_nwidth(param);
+	return (ret);
 }

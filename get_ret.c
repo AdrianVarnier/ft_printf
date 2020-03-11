@@ -1,53 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   get_ret.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 18:02:52 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 13:01:20 by avarnier         ###   ########.fr       */
+/*   Created: 2020/03/11 12:07:20 by avarnier          #+#    #+#             */
+/*   Updated: 2020/03/11 12:22:04 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_all(va_list va, const char *s, t_list param)
+int	get_ret(const char *s)
 {
 	int i;
-	int ret;
+	int	count;
 
 	i = 0;
-	ret = 0;
+	count = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == '%' && s[i + 1] == '%')
 		{
 			i++;
-			ft_putchar_fd('%', 1);
+			count++;
 		}
 		else if (s[i] == '%')
 		{
-			ret = ret + print(va, s + i, param);
 			i++;
 			while (ft_isalpha(s[i]) == 0 && s[i] != '%')
 				i++;
 		}
 		else
-			ft_putchar_fd(s[i], 1);
+			count++;
 		i++;
 	}
-	return (ret);
-}
-
-int	ft_printf(const char *s, ...)
-{
-	va_list va;
-	t_list	param;
-	int		ret;
-
-	va_start(va, s);
-	ret = print_all(va, s, param);
-	va_end(va);
-	return (ret + get_ret(s));
+	return (count);
 }

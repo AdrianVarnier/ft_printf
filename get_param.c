@@ -6,13 +6,13 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:28:44 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/09 17:47:07 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/11 11:43:18 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		get_flag(const char *s, t_list *param)
+static int	get_flag(const char *s, t_list *param)
 {
 	int	i;
 
@@ -29,29 +29,29 @@ int		get_flag(const char *s, t_list *param)
 	return (i);
 }
 
-int		get_width(va_list va, const char *s, t_list *param)
+static int	get_wid(va_list va, const char *s, t_list *param)
 {
 	int		i;
 
 	i = 0;
-	param->width = 0;
+	param->wid = 0;
 	if (s[i] == '*')
 	{
-		param->width = va_arg(va, int);
-		if (param->width < 0)
+		param->wid = va_arg(va, int);
+		if (param->wid < 0)
 		{
-			param->width = param->width * -1;
+			param->wid = param->wid * -1;
 			param->flag = '-';
 		}
 	}
 	else if (ft_isdigit(s[i]) != 0)
-		param->width = ft_atoi(s);
+		param->wid = ft_atoi(s);
 	while (s[i] == '*' || ft_isdigit(s[i]) != 0)
 		i++;
 	return (i);
 }
 
-int		get_pre(va_list va, const char *s, t_list *param)
+static int	get_pre(va_list va, const char *s, t_list *param)
 {
 	int i;
 
@@ -68,13 +68,13 @@ int		get_pre(va_list va, const char *s, t_list *param)
 	return (i);
 }
 
-void	get_param(va_list va, const char *s, t_list *param)
+void		get_param(va_list va, const char *s, t_list *param)
 {
 	int		i;
 
 	i = 1;
 	i = i + get_flag(s + i, param);
-	i = i + get_width(va, s + i, param);
+	i = i + get_wid(va, s + i, param);
 	i = i + get_pre(va, s + i, param);
 	param->type = s[i];
 }
