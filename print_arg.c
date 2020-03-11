@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 15:15:26 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 12:20:33 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/11 14:46:24 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ int	print_arg(va_list va, t_list *param)
 	return (0);
 }
 
-int	print_pre(t_list param)
+int	print_pre(t_list *param)
 {
 	int	x;
 	int	count;
 
 	count = 0;
-	if (param.pre > param.len)
+	if (param->pre > param->len)
 	{
-		x = param.pre - param.len;
+		x = param->pre - param->len;
 		while (x > 0)
-		{
+		{	
 			ft_putchar_fd('0', 1);
 			count++;
 			x--;
@@ -54,7 +54,7 @@ int	print_pre(t_list param)
 	return (count);
 }
 
-int	print_wid(t_list param)
+int	print_wid(t_list *param)
 {
 	int		x;
 	int		count;
@@ -62,16 +62,16 @@ int	print_wid(t_list param)
 
 	c = ' ';
 	count = 0;
-	if (param.flag == '-')
+	if (param->flag == '-')
 		return (0);
-	if (param.flag == '0')
+	if (param->flag == '0')
 		c = '0';
-	if (param.wid > param.pre && param.wid > param.len)
+	if (param->wid > param->pre && param->wid > param->len)
 	{
-		if (param.pre > param.len)
-			x = param.wid - param.pre;
-		if (param.len > param.pre)
-			x = param.wid - param.len;
+		if (param->pre > param->len)
+			x = param->wid - param->pre;
+		if (param->len > param->pre)
+			x = param->wid - param->len;
 		while (x > 0)
 		{
 			ft_putchar_fd(c, 1);
@@ -82,20 +82,20 @@ int	print_wid(t_list param)
 	return (count);
 }
 
-int	print_nwidth(t_list param)
+int	print_nwidth(t_list *param)
 {
 	int		x;
 	int		count;
 
 	count = 0;
-	if (param.flag != '-')
+	if (param->flag != '-')
 		return (0);
-	if (param.wid > param.pre && param.wid > param.len)
+	if (param->wid > param->pre && param->wid > param->len)
 	{
-		if (param.pre > param.len)
-			x = param.wid - param.pre;
-		if (param.len > param.pre)
-			x = param.wid - param.len;
+		if (param->pre > param->len)
+			x = param->wid - param->pre;
+		if (param->len > param->pre)
+			x = param->wid - param->len;
 		while (x > 0)
 		{
 			ft_putchar_fd(' ', 1);
@@ -106,16 +106,16 @@ int	print_nwidth(t_list param)
 	return (count);
 }
 
-int	print(va_list va, const char *s, t_list param)
+int	print(va_list va, const char *s, t_list *param)
 {
 	int	ret;
 
 	ret = 0;
-	get_param(va, s, &param);
-	get_len(va, &param);
+	get_param(va, s, param);
+	get_len(va, param);
 	print_wid(param);
 	ret = ret + print_pre(param);
-	ret = ret + print_arg(va, &param);
+	ret = ret + print_arg(va, param);
 	ret = ret + print_nwidth(param);
 	return (ret);
 }

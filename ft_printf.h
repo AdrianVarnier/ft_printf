@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:24:07 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 12:58:14 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/11 14:26:10 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int				hexlen(int n);
 int				unslen(unsigned int n);
 int				nbrlen(int n);
 void			get_len(va_list va, t_list *param);
-int				print_pre(t_list param);
-int				print_wid(t_list param);
-int				print_nwidth(t_list param);
+int				print_pre(t_list *param);
+int				print_wid(t_list *param);
+int				print_nwidth(t_list *param);
 int				get_ret(const char *s);
-int				print(va_list va, const char *s, t_list param);
-int				print_all(va_list va, const char *s, t_list param);
+int				print(va_list va, const char *s, t_list *param);
+int				print_all(va_list va, const char *s, t_list *param);
 
 #endif
