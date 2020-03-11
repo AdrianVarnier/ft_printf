@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:24:07 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 14:26:10 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/11 14:59:52 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct	s_list
 }				t_list;
 
 int				ft_printf(const char *s, ...);
-void			get_param(va_list va, const char *s, t_list *param);
+t_list			*get_param(va_list va, const char *s);
 int				print_arg(va_list va, t_list *param);
 int				ft_isdigit(int c);
 int				ft_atoi(const char *s);
@@ -46,7 +46,7 @@ int				print_pre(t_list *param);
 int				print_wid(t_list *param);
 int				print_nwidth(t_list *param);
 int				get_ret(const char *s);
-int				print(va_list va, const char *s, t_list *param);
-int				print_all(va_list va, const char *s, t_list *param);
+int				print(va_list va, const char *s);
+int				print_all(va_list va, const char *s);
 
 #endif

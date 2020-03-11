@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 15:15:26 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 14:46:24 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/11 14:59:55 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,16 +106,18 @@ int	print_nwidth(t_list *param)
 	return (count);
 }
 
-int	print(va_list va, const char *s, t_list *param)
+int	print(va_list va, const char *s)
 {
-	int	ret;
+	t_list	*param;
+	int		ret;
 
 	ret = 0;
-	get_param(va, s, param);
+	param = get_param(va, s);
 	get_len(va, param);
 	print_wid(param);
 	ret = ret + print_pre(param);
 	ret = ret + print_arg(va, param);
 	ret = ret + print_nwidth(param);
+	free(param);
 	return (ret);
 }
