@@ -6,13 +6,13 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 10:23:39 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 11:29:56 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/12 13:32:06 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	nbrlen(int n)
+int	nbrlen(int n, t_list *param)
 {
 	int	count;
 
@@ -21,8 +21,8 @@ int	nbrlen(int n)
 		return (1);
 	if (n < 0)
 	{
+		param->sign = '-';
 		n = n * -1;
-		count++;
 	}
 	while (n > 0)
 	{
@@ -47,7 +47,7 @@ int	unslen(unsigned int n)
 	return (count);
 }
 
-int	hexlen(int n)
+int	hexlen(int n, t_list *param)
 {
 	int count;
 
@@ -56,8 +56,8 @@ int	hexlen(int n)
 		return (1);
 	if (n < 0)
 	{
+		param->sign = '-';
 		n = n * -1;
-		count++;
 	}
 	while (n > 0)
 	{

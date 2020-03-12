@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:24:07 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 14:59:52 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/12 13:29:16 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_list
 	int				len;
 	char			flag;
 	char			type;
+	char			sign;
 }				t_list;
 
 int				ft_printf(const char *s, ...);
@@ -38,9 +39,9 @@ int				ft_putstr_fd(char *s, int fd);
 int				ft_putnbr_fd(int n, int fd);
 int				ft_puthex_fd(unsigned long n, int fd, char *base);
 int				ft_putuns_fd(unsigned int n, int fd);
-int				hexlen(int n);
+int				hexlen(int n, t_list *param);
 int				unslen(unsigned int n);
-int				nbrlen(int n);
+int				nbrlen(int n, t_list *param);
 void			get_len(va_list va, t_list *param);
 int				print_pre(t_list *param);
 int				print_wid(t_list *param);

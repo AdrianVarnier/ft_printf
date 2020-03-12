@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 15:15:26 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 14:59:55 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/12 13:31:28 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	print_pre(t_list *param)
 	int	x;
 	int	count;
 
+	if (param->sign == '-')
+		ft_putchar_fd('-', 1);
 	count = 0;
 	if (param->pre > param->len)
 	{
@@ -111,10 +113,9 @@ int	print(va_list va, const char *s)
 	t_list	*param;
 	int		ret;
 
-	ret = 0;
 	param = get_param(va, s);
 	get_len(va, param);
-	print_wid(param);
+	ret = print_wid(param);
 	ret = ret + print_pre(param);
 	ret = ret + print_arg(va, param);
 	ret = ret + print_nwidth(param);

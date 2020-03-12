@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 15:20:13 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/10 16:01:11 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/12 13:30:47 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_putnbr_fd(int n, int fd)
 	i = 0;
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
 		nb = -n;
 		i++;
 	}
@@ -41,7 +40,6 @@ int	ft_puthex_fd(unsigned long n, int fd, char *base)
 	i = 0;
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
 		nb = -n;
 		i++;
 	}
