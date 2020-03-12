@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 10:23:39 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/12 13:32:06 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/12 13:55:36 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	nbrlen(int n, t_list *param)
 	{
 		param->sign = '-';
 		n = n * -1;
+		count++;
 	}
 	while (n > 0)
 	{
@@ -58,6 +59,7 @@ int	hexlen(int n, t_list *param)
 	{
 		param->sign = '-';
 		n = n * -1;
+		count++;
 	}
 	while (n > 0)
 	{

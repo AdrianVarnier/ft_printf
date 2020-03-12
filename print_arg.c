@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 15:15:26 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/12 13:31:28 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/12 16:24:46 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int	print_wid(t_list *param)
 
 	c = ' ';
 	count = 0;
+	if (param->sign == '-' && param->pre > param->len)
+		param->pre++;
 	if (param->flag == '-')
 		return (0);
 	if (param->flag == '0')
@@ -90,6 +92,7 @@ int	print_nwidth(t_list *param)
 	int		count;
 
 	count = 0;
+
 	if (param->flag != '-')
 		return (0);
 	if (param->wid > param->pre && param->wid > param->len)
