@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:28:44 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/12 14:10:36 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/03/12 16:39:53 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ t_list		*get_param(va_list va, const char *s)
 	i = i + get_wid(va, s + i, param);
 	i = i + get_pre(va, s + i, param);
 	param->type = s[i];
+	param->sign = 0;
 	return (param);
 }
