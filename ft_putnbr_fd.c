@@ -35,19 +35,11 @@ int	ft_putnbr_fd(int n, int fd)
 int	ft_puthex_fd(unsigned long n, int fd, char *base)
 {
 	int				i;
-	unsigned long	nb;
 
 	i = 0;
-	if (n < 0)
-	{
-		nb = -n;
-		i++;
-	}
-	else
-		nb = n;
-	if (nb >= 16)
-		i = i + ft_puthex_fd(nb / 16, fd, base);
-	ft_putchar_fd(base[nb % 16], fd);
+	if (n >= 16)
+		i = i + ft_puthex_fd(n / 16, fd, base);
+	ft_putchar_fd(base[n % 16], fd);
 	i++;
 	return (i);
 }
