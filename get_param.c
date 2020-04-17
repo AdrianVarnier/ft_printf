@@ -56,9 +56,13 @@ static int	get_pre(va_list va, const char *s, t_list *param)
 	int i;
 
 	i = 1;
+	param->p = 1;
 	param->pre = 0;
 	if (s[0] != '.')
+	{
+		param->p = 0;
 		return (0);
+	}
 	if (s[i] == '*')
 		param->pre = va_arg(va, int);
 	else if (ft_isdigit(s[i]) != 0)

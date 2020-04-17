@@ -12,17 +12,17 @@
 
 #include "ft_printf.h"
 
-int	ft_putstr_fd(char *s, int fd, int max)
+int	ft_putstr_fd(char *s, int fd, int max, int p)
 {
 	int	i;
 
 	if (s == NULL)
 	{
-		ft_putstr_fd("(null)", 1, 6);
+		ft_putstr_fd("(null)", 1, 0, 0);
 		return (6);
 	}
 	i = ft_strlen(s);
-	if (ft_strlen(s) > max && max != 0)
+	if (ft_strlen(s) > max && p == 1)
 		i = max;
 	write(fd, s, i);
 	return (i);

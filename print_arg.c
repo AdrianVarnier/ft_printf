@@ -15,7 +15,7 @@
 int	print_arg(va_list va, t_list *param)
 {
 	if (param->type == 's')
-		return (ft_putstr_fd(va_arg(va, char *), 1, param->pre));
+		return (ft_putstr_fd(va_arg(va, char *), 1, param->pre, param->p));
 	if (param->type == 'c')
 		return (ft_putchar_fd(va_arg(va, int), 1));
 	if (param->type == 'i' || param->type == 'd')
@@ -28,7 +28,7 @@ int	print_arg(va_list va, t_list *param)
 		return (ft_puthex_fd(va_arg(va, int), 1, "0123456789ABCDEF"));
 	if (param->type == 'p')
 	{
-		ft_putstr_fd("0x", 1, 2);
+		ft_putstr_fd("0x", 1, 0, 0);
 		return (2 + ft_puthex_fd(va_arg(va, unsigned long),
 		1, "0123456789abcdef"));
 	}
@@ -40,6 +40,8 @@ int	print_pre(t_list *param)
 	int	x;
 	int	count;
 
+	if (param->type == 's')
+		return (0);
 	if (param->sign == '-')
 		ft_putchar_fd('-', 1);
 	count = 0;
