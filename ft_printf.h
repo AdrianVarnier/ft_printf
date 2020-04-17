@@ -35,7 +35,7 @@ int				ft_atoi(const char *s);
 int				ft_putchar_fd(char c, int fd);
 int				ft_isalpha(int c);
 int				ft_strlen(const char *s);
-int				ft_putstr_fd(char *s, int fd);
+int				ft_putstr_fd(char *s, int fd, int max);
 int				ft_putnbr_fd(int n, int fd);
 int				ft_puthex_fd(unsigned long n, int fd, char *base);
 int				ft_putuns_fd(unsigned int n, int fd);
