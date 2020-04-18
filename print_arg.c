@@ -58,61 +58,6 @@ int	print_pre(t_list *param)
 	return (count);
 }
 
-int	print_wid(t_list *param)
-{
-	int		x;
-	int		count;
-	char	c;
-
-	c = ' ';
-	count = 0;
-	if (param->sign == '-' && param->pre > param->len)
-		param->pre++;
-	if (param->flag == '-')
-		return (0);
-	if (param->flag == '0')
-		c = '0';
-	if (param->wid > param->pre && param->wid > param->len)
-	{
-		if (param->pre > param->len)
-			x = param->wid - param->pre;
-		if (param->len > param->pre)
-			x = param->wid - param->len;
-		while (x > 0)
-		{
-			ft_putchar_fd(c, 1);
-			count++;
-			x--;
-		}
-	}
-	return (count);
-}
-
-int	print_nwidth(t_list *param)
-{
-	int		x;
-	int		count;
-
-	count = 0;
-
-	if (param->flag != '-')
-		return (0);
-	if (param->wid > param->pre && param->wid > param->len)
-	{
-		if (param->pre > param->len)
-			x = param->wid - param->pre;
-		if (param->len > param->pre)
-			x = param->wid - param->len;
-		while (x > 0)
-		{
-			ft_putchar_fd(' ', 1);
-			count++;
-			x--;
-		}
-	}
-	return (count);
-}
-
 int	print(va_list va, const char *s)
 {
 	t_list	*param;
@@ -120,10 +65,19 @@ int	print(va_list va, const char *s)
 
 	param = get_param(va, s);
 	get_len(va, param);
-	ret = print_wid(param);
-	ret = ret + print_pre(param);
-	ret = ret + print_arg(va, param);
-	ret = ret + print_nwidth(param);
+	if (param->type == 's')
+	{
+		ret = print_swid(param);
+		ret = ret + print_arg(va, param);
+		ret = ret + print_snegwidth(param);
+	}
+	else
+	{
+		ret = print_numwid(param);
+		ret = ret + print_pre(param);
+		ret = ret + print_arg(va, param);
+		ret = ret + print_numnegwidth(param);
+	}
 	free(param);
 	return (ret);
 }

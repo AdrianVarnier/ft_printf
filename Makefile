@@ -31,6 +31,7 @@ FCT = 	ft_atoi.c\
 		get_len.c\
 		get_ret.c\
 		print_arg.c\
+		print_width.c\
 
 OBJ = $(addsuffix .o, $(basename $(FCT)))
 
