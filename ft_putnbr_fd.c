@@ -12,12 +12,14 @@
 
 #include "ft_printf.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd, t_list *param)
 {
 	int				i;
 	unsigned int	nb;
 
 	i = 0;
+	if (n == 0 && param->p == 1 && param->pre == 0)
+		return (0);
 	if (n < 0)
 	{
 		nb = -n;
@@ -26,31 +28,35 @@ int	ft_putnbr_fd(int n, int fd)
 	else
 		nb = n;
 	if (nb >= 10)
-		i = i + ft_putnbr_fd(nb / 10, fd);
+		i = i + ft_putnbr_fd(nb / 10, fd, param);
 	ft_putchar_fd(nb % 10 + 48, fd);
 	i++;
 	return (i);
 }
 
-int	ft_puthex_fd(unsigned long n, int fd, char *base)
+int	ft_puthex_fd(unsigned long n, int fd, char *base, t_list *param)
 {
 	int				i;
 
 	i = 0;
+	if (n == 0 && param->p == 1 && param->pre == 0)
+		return (0);
 	if (n >= 16)
-		i = i + ft_puthex_fd(n / 16, fd, base);
+		i = i + ft_puthex_fd(n / 16, fd, base, param);
 	ft_putchar_fd(base[n % 16], fd);
 	i++;
 	return (i);
 }
 
-int	ft_putuns_fd(unsigned int n, int fd)
+int	ft_putuns_fd(unsigned int n, int fd, t_list *param)
 {
 	int				i;
 
 	i = 0;
+	if (n == 0 && param->p == 1 && param->pre == 0)
+		return (0);
 	if (n >= 10)
-		i = i + ft_putuns_fd(n / 10, fd);
+		i = i + ft_putuns_fd(n / 10, fd, param);
 	ft_putchar_fd(n % 10 + 48, fd);
 	i++;
 	return (i);

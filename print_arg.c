@@ -19,18 +19,18 @@ int	print_arg(va_list va, t_list *param)
 	if (param->type == 'c')
 		return (ft_putchar_fd(va_arg(va, int), 1));
 	if (param->type == 'i' || param->type == 'd')
-		return (ft_putnbr_fd(va_arg(va, int), 1));
+		return (ft_putnbr_fd(va_arg(va, int), 1, param));
 	if (param->type == 'u')
-		return (ft_putuns_fd(va_arg(va, unsigned int), 1));
+		return (ft_putuns_fd(va_arg(va, unsigned int), 1, param));
 	if (param->type == 'x')
-		return (ft_puthex_fd(va_arg(va, int), 1, "0123456789abcdef"));
+		return (ft_puthex_fd(va_arg(va, int), 1, "0123456789abcdef", param));
 	if (param->type == 'X')
-		return (ft_puthex_fd(va_arg(va, int), 1, "0123456789ABCDEF"));
+		return (ft_puthex_fd(va_arg(va, int), 1, "0123456789ABCDEF", param));
 	if (param->type == 'p')
 	{
 		ft_putstr_fd("0x", 1, 0, 0);
 		return (2 + ft_puthex_fd(va_arg(va, unsigned long),
-		1, "0123456789abcdef"));
+		1, "0123456789abcdef", param));
 	}
 	return (0);
 }
