@@ -48,19 +48,13 @@ int	unslen(unsigned int n)
 	return (count);
 }
 
-int	hexlen(int n, t_list *param)
+int	hexlen(unsigned int n)
 {
 	int count;
 
 	count = 0;
 	if (n == 0)
 		return (1);
-	if (n < 0)
-	{
-		param->sign = '-';
-		n = n * -1;
-		count++;
-	}
 	while (n > 0)
 	{
 		n = n / 16;

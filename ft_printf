@@ -43,14 +43,14 @@ Hello 42 school! (null)
 0
 0000000000
 0000000014
-0000000-ffffffffffffffec
+00ffffffec
         14
-       -ffffffffffffffec
+  ffffffec
 32        
 0              
 1f4
                                         0000000002
--ffffffffffffffff
+ffffffff
 00000000000000000000000000000000000000000000000050
 -589
 -2464
@@ -127,16 +127,16 @@ t14       1000
 4caractere 1            a caractere 2            c
 51
 1caractere 1 a caractere 2 c
-1hexa-maj 1 2A hexa-maj 2 -FFFFFFFFFFFFFFD6
-43
+1hexa-maj 1 2A hexa-maj 2 FFFFFFD6
+35
 4hexa-maj 1           2A hexa-maj 2 -42nt12X
 45
-4hexa-maj 1 2A           hexa-maj 2 -FFFFFFFFFFFFFFD6         
-62
-5hexa-maj 1 2A hexa-maj 2 -FFFFFFFFFFFFFFD6
-43
-6hexa-maj 1 00000000002A hexa-maj 2 000000000-FFFFFFFFFFFFFFD6
-62
+4hexa-maj 1 2A           hexa-maj 2 FFFFFFD6    
+49
+5hexa-maj 1 2A hexa-maj 2 FFFFFFD6
+35
+6hexa-maj 1 00000000002A hexa-maj 2 0000FFFFFFD6
+49
 8hexa-maj 1                                          6 hexa-maj 2      6
 73
 1unsigned 1 42 unsigned 2 4294967254

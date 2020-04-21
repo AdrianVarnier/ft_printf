@@ -34,7 +34,21 @@ int	ft_putnbr_fd(int n, int fd, t_list *param)
 	return (i);
 }
 
-int	ft_puthex_fd(unsigned long n, int fd, char *base, t_list *param)
+int	ft_putadr_fd(unsigned long n, int fd, char *base, t_list *param)
+{
+	int				i;
+
+	i = 0;
+	if (n == 0 && param->p == 1 && param->pre == 0)
+		return (0);
+	if (n >= 16)
+		i = i + ft_putadr_fd(n / 16, fd, base, param);
+	ft_putchar_fd(base[n % 16], fd);
+	i++;
+	return (i);
+}
+
+int	ft_puthex_fd(unsigned int n, int fd, char *base, t_list *param)
 {
 	int				i;
 
