@@ -29,6 +29,6 @@ void	get_len(va_list va, t_list *param)
 	if (param->type == 'x' || param->type == 'X')
 		param->len = hexlen(va_arg(cpy, int));
 	if (param->type == 'p')
-		param->len = 14;
+		param->len = adrlen(va_arg(cpy, unsigned long));
 	va_end(cpy);
 }

@@ -53,6 +53,16 @@ int	ft_puthex_fd(unsigned int n, int fd, char *base, t_list *param)
 	int				i;
 
 	i = 0;
+	if (i == 0 && param->type == 'p' && n != 0)
+	{
+		ft_putstr_fd("0x", 1, 0, 0);
+		i = i + 2;
+	}
+	if (param->type == 'p' && n == 0)
+	{
+		ft_putstr_fd("(nil)", 1, 0, 0);
+		return (5);
+	}
 	if (n == 0 && param->p == 1 && param->pre == 0)
 		return (0);
 	if (n >= 16)

@@ -23,7 +23,6 @@ int	nbrlen(int n, t_list *param)
 	{
 		param->sign = '-';
 		n = n * -1;
-		count++;
 	}
 	while (n > 0)
 	{
@@ -53,6 +52,23 @@ int	hexlen(unsigned int n)
 	int count;
 
 	count = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n = n / 16;
+		count++;
+	}
+	return (count);
+}
+
+int	adrlen(unsigned long n)
+{
+	int count;
+
+	count = 0;
+	if (n == 0)
+		return (5);
 	if (n == 0)
 		return (1);
 	while (n > 0)

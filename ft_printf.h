@@ -42,6 +42,7 @@ int				ft_putadr_fd(unsigned long n, int fd, char *base, t_list *param);
 int				ft_puthex_fd(unsigned int n, int fd, char *base, t_list *param);
 int				ft_putuns_fd(unsigned int n, int fd, t_list *param);
 int				hexlen(unsigned int n);
+int				adrlen(unsigned long n);
 int				unslen(unsigned int n);
 int				nbrlen(int n, t_list *param);
 void			get_len(va_list va, t_list *param);

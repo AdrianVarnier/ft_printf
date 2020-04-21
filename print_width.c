@@ -8,8 +8,6 @@ int     print_numwid(t_list *param)
 
 		c = ' ';
 		count = 0;
-		if (param->sign == '-' && param->pre > param->len)
-				param->pre++;
 		if (param->flag == '-')
 				return (0);
 		if (param->flag == '0')
@@ -63,8 +61,6 @@ int     print_swid(t_list *param)
 
 		c = ' ';
 		count = 0;
-		if (param->sign == '-' && param->pre > param->len)
-				param->pre++;
 		if (param->flag == '-')
 				return (0);
 		if (param->flag == '0')

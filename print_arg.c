@@ -28,8 +28,7 @@ int	print_arg(va_list va, t_list *param)
 		return (ft_puthex_fd(va_arg(va, int), 1, "0123456789ABCDEF", param));
 	if (param->type == 'p')
 	{
-		ft_putstr_fd("0x", 1, 0, 0);
-		return (2 + ft_puthex_fd(va_arg(va, unsigned long),
+		return (ft_puthex_fd(va_arg(va, unsigned long),
 		1, "0123456789abcdef", param));
 	}
 	return (0);
