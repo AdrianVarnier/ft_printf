@@ -14,11 +14,11 @@ int     print_negnumwid(t_list *param)
 				return (0);
 		if (param->flag == '0')
 				c = '0';
-		if (param->wid > param->pre && param->wid > param->len - 1)
+		if (param->wid > param->pre && param->wid > param->len)
 		{
-				if (param->pre > param->len - 1)
+				if (param->pre > param->len)
 						x = param->wid - param->pre - 1;
-				if (param->len - 1 > param->pre)
+				if (param->len > param->pre)
 						x = param->wid - param->len - 1;
 				while (x > 0)
 				{
@@ -41,11 +41,11 @@ int     print_negnum_negwidth(t_list *param)
 
 		if (param->flag != '-' || param->sign != '-')
 				return (0);
-		if (param->wid > param->pre && param->wid > param->len - 1)
+		if (param->wid > param->pre && param->wid > param->len)
 		{
-				if (param->pre > param->len - 1)
-						x = param->wid - param->pre;
-				if (param->len - 1 > param->pre)
+				if (param->pre > param->len)
+						x = param->wid - param->pre - 1;
+				if (param->len > param->pre)
 						x = param->wid - param->len - 1;
 				while (x > 0)
 				{
