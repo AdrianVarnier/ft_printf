@@ -17,7 +17,7 @@ int     print_negnumwid(t_list *param)
 		if (param->wid > param->pre && param->wid > param->len - 1)
 		{
 				if (param->pre > param->len - 1)
-						x = param->wid - param->pre;
+						x = param->wid - param->pre - 1;
 				if (param->len - 1 > param->pre)
 						x = param->wid - param->len - 1;
 				while (x > 0)

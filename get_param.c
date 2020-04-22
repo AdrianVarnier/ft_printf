@@ -85,5 +85,7 @@ t_list		*get_param(va_list va, const char *s)
 	i = i + get_pre(va, s + i, param);
 	param->type = s[i];
 	param->sign = 0;
+	if (param->p == 1 && param->flag == '0' && (param->type == 'd' || param->type == 'i'))
+		param->flag = 0;
 	return (param);
 }

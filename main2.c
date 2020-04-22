@@ -3,7 +3,11 @@
 
 int main()
 {
-		printf("ret = %d\n", printf("%%p::[%010.5d]\n", -8473));
-		ft_printf("ret = %d\n", ft_printf("%%p::[%010.5d]\n", -8473));
+		printf("%50.2s\n", NULL);
+		printf("%5.0s\n", "Hello");
+		printf("%.1s\n", "Test");
+		ft_printf("%50.2s\n", NULL);
+		ft_printf("%5.0s\n", "Hello");
+		ft_printf("%.1s\n", "Test");
 		return (0);
 }
