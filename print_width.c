@@ -8,7 +8,7 @@ int     print_numwid(t_list *param)
 
 		c = ' ';
 		count = 0;
-		if (param->flag == '-')
+		if (param->flag == '-' || param->sign == '-')
 				return (0);
 		if (param->flag == '0')
 				c = '0';
@@ -35,7 +35,7 @@ int     print_numnegwidth(t_list *param)
 
 		count = 0;
 
-		if (param->flag != '-')
+		if (param->flag != '-' || param->sign == '-')
 				return (0);
 		if (param->wid > param->pre && param->wid > param->len)
 		{

@@ -51,6 +51,8 @@ int				print_swid(t_list *param);
 int				print_snegwidth(t_list *param);
 int				print_numwid(t_list *param);
 int				print_numnegwidth(t_list *param);
+int     		print_negnum_negwidth(t_list *param);
+int				print_negnumwid(t_list *param);
 int				get_ret(const char *s);
 int				print(va_list va, const char *s);
 int				print_all(va_list va, const char *s);

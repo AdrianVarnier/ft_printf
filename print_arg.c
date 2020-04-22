@@ -41,7 +41,7 @@ int	print_pre(t_list *param)
 
 	if (param->type == 's')
 		return (0);
-	if (param->sign == '-')
+	if (param->sign == '-' && param->flag == '-')
 		ft_putchar_fd('-', 1);
 	count = 0;
 	if (param->pre > param->len)
@@ -73,9 +73,11 @@ int	print(va_list va, const char *s)
 	else
 	{
 		ret = print_numwid(param);
+		ret = ret + print_negnumwid(param);
 		ret = ret + print_pre(param);
 		ret = ret + print_arg(va, param);
 		ret = ret + print_numnegwidth(param);
+		ret = ret + print_negnum_negwidth(param);
 	}
 	free(param);
 	return (ret);

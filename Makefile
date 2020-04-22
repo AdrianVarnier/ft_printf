@@ -32,6 +32,7 @@ FCT = 	ft_atoi.c\
 		get_ret.c\
 		print_arg.c\
 		print_width.c\
+		print_negnumwidth.c\
 
 OBJ = $(addsuffix .o, $(basename $(FCT)))
 
