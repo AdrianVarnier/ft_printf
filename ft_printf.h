@@ -20,6 +20,7 @@
 typedef struct	s_list
 {
 	int				wid;
+	int				s;
 	int				p;
 	int				pre;
 	int				len;
@@ -36,6 +37,7 @@ int				ft_atoi(const char *s);
 int				ft_putchar_fd(char c, int fd);
 int				ft_isalpha(int c);
 int				ft_strlen(const char *s);
+int				ft_strlen_param(const char *s, t_list *param);
 int				ft_putstr_fd(char *s, int fd, int max, int p);
 int				ft_putnbr_fd(int n, int fd, t_list *param);
 int				ft_putadr_fd(unsigned long n, int fd,

@@ -19,7 +19,7 @@ void	get_len(va_list va, t_list *param)
 	param->len = 0;
 	va_copy(cpy, va);
 	if (param->type == 's')
-		param->len = ft_strlen(va_arg(cpy, char *));
+		param->len = ft_strlen_param(va_arg(cpy, char *), param);
 	if (param->type == 'c')
 		param->len = 1;
 	if (param->type == 'i' || param->type == 'd')

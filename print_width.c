@@ -64,10 +64,13 @@ int	print_swid(t_list *param)
 		return (0);
 	if (param->flag == '0')
 		c = '0';
-	if (param->wid > param->len)
+	if ((param->wid > param->pre && param->p == 1) ||
+	(param->wid > param->len && param->p == 0))
 	{
 		if (param->pre > param->len || param->p == 0)
 			x = param->wid - param->len;
+		else if (param->p == 1 && param->s == 0)
+			x = param->wid;
 		else
 			x = param->wid - param->pre;
 		while (x > 0)
@@ -88,10 +91,13 @@ int	print_snegwidth(t_list *param)
 	count = 0;
 	if (param->flag != '-')
 		return (0);
-	if (param->wid > param->len)
+	if ((param->wid > param->pre && param->p == 1) ||
+	(param->wid > param->len && param->p == 0))
 	{
 		if (param->pre > param->len || param->p == 0)
 			x = param->wid - param->len;
+		else if (param->p == 1 && param->s == 0)
+			x = param->wid;
 		else
 			x = param->wid - param->pre;
 		while (x > 0)
