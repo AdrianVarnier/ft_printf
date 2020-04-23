@@ -3,7 +3,7 @@
 
 int main()
 {
-		ft_printf("%5.0s\n", "Helloo");
-		printf("%5.0s\n", "Helloo");
+		printf("neg2 %*.*d\n", -9, 4, 1555);
+		ft_printf("neg2 %*.*d\n", -9, 4, 1555);
 		return (0);
 }

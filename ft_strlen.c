@@ -22,7 +22,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-int     ft_strlen_param(const char *s, t_list *param)
+int	ft_strlen_param(const char *s, t_list *param)
 {
 	int i;
 

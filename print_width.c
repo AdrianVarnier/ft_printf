@@ -1,6 +1,13 @@
 #include "ft_printf.h"
 
-int	print_numwid(t_list *param)
+static int	flag(t_list *param)
+{
+	if (param->flag == '0')
+		return ('0');
+	return (' ');
+}
+
+int			print_numwid(t_list *param)
 {
 	int		x;
 	int		count;
@@ -16,7 +23,7 @@ int	print_numwid(t_list *param)
 	{
 		if (param->pre > param->len)
 			x = param->wid - param->pre;
-		if (param->len > param->pre)
+		else
 			x = param->wid - param->len;
 		while (x > 0)
 		{
@@ -28,7 +35,7 @@ int	print_numwid(t_list *param)
 	return (count);
 }
 
-int	print_numnegwidth(t_list *param)
+int			print_numnegwidth(t_list *param)
 {
 	int	x;
 	int	count;
@@ -40,7 +47,7 @@ int	print_numnegwidth(t_list *param)
 	{
 		if (param->pre > param->len)
 			x = param->wid - param->pre;
-		if (param->len > param->pre)
+		else
 			x = param->wid - param->len;
 		while (x > 0)
 		{
@@ -52,19 +59,17 @@ int	print_numnegwidth(t_list *param)
 	return (count);
 }
 
-int	print_swid(t_list *param)
+int			print_swid(t_list *param)
 {
 	int		x;
 	int		count;
 	char	c;
 
-	c = ' ';
+	c = flag(param);
 	count = 0;
 	if (param->flag == '-')
 		return (0);
-	if (param->flag == '0')
-		c = '0';
-	if ((param->wid > param->pre && param->p == 1) ||
+	if ((param->wid >= param->pre && param->p == 1) ||
 	(param->wid > param->len && param->p == 0))
 	{
 		if (param->pre > param->len || param->p == 0)
@@ -83,7 +88,7 @@ int	print_swid(t_list *param)
 	return (count);
 }
 
-int	print_snegwidth(t_list *param)
+int			print_snegwidth(t_list *param)
 {
 	int	x;
 	int	count;
@@ -91,7 +96,7 @@ int	print_snegwidth(t_list *param)
 	count = 0;
 	if (param->flag != '-')
 		return (0);
-	if ((param->wid > param->pre && param->p == 1) ||
+	if ((param->wid >= param->pre && param->p == 1) ||
 	(param->wid > param->len && param->p == 0))
 	{
 		if (param->pre > param->len || param->p == 0)
