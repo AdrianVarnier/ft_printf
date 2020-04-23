@@ -1,58 +1,72 @@
 #include "ft_printf.h"
 
-int     print_negnumwid(t_list *param)
+static void	put_sign1(t_list *param)
 {
-		int             x;
-		int             count;
-		char    c;
-
-		c = ' ';
-		count = 0;
-		if (param->sign == '-' && param->flag == '0')
-				ft_putchar_fd('-', 1);
-		if (param->flag == '-' || param->sign != '-')
-				return (0);
-		if (param->flag == '0')
-				c = '0';
-		if (param->wid > param->pre && param->wid > param->len)
-		{
-				if (param->pre > param->len)
-						x = param->wid - param->pre - 1;
-				if (param->len > param->pre)
-						x = param->wid - param->len - 1;
-				while (x > 0)
-				{
-						ft_putchar_fd(c, 1);
-						count++;
-						x--;
-				}
-		}
-		if (param->sign == '-' && param->flag != '0')
-			ft_putchar_fd('-', 1);
-		return (count);
+	if (param->sign == '-' && param->flag == '0')
+		ft_putchar_fd('-', 1);
 }
 
-int     print_negnum_negwidth(t_list *param)
+static void	put_sign2(t_list *param)
 {
-		int             x;
-		int             count;
+	if (param->sign == '-' && param->flag != '0')
+		ft_putchar_fd('-', 1);
+}
 
-		count = 0;
+static int	flag(t_list *param)
+{
+	if (param->flag == '0')
+		return ('0');
+	return (' ');
+}
 
-		if (param->flag != '-' || param->sign != '-')
-				return (0);
-		if (param->wid > param->pre && param->wid > param->len)
+int			print_negnumwid(t_list *param)
+{
+	int		x;
+	int		count;
+	char	c;
+
+	c = flag(param);
+	count = 0;
+	put_sign1(param);
+	if (param->flag == '-' || param->sign != '-')
+		return (0);
+	if (param->wid > param->pre && param->wid > param->len)
+	{
+		if (param->pre > param->len)
+			x = param->wid - param->pre - 1;
+		if (param->len > param->pre)
+			x = param->wid - param->len - 1;
+		while (x > 0)
 		{
-				if (param->pre > param->len)
-						x = param->wid - param->pre - 1;
-				if (param->len > param->pre)
-						x = param->wid - param->len - 1;
-				while (x > 0)
-				{
-						ft_putchar_fd(' ', 1);
-						count++;
-						x--;
-				}
+			ft_putchar_fd(c, 1);
+			count++;
+			x--;
 		}
-		return (count);
+	}
+	put_sign2(param);
+	return (count);
+}
+
+int			print_negnum_negwidth(t_list *param)
+{
+	int	x;
+	int	count;
+
+	count = 0;
+	if (param->flag != '-' || param->sign != '-')
+		return (0);
+	if (param->wid > param->pre && param->wid > param->len)
+	{
+		if (param->pre > param->len)
+			x = param->wid - param->pre - 1;
+		if (param->len > param->pre)
+			x = param->wid - param->len - 1;
+		while (x > 0)
+		{
+			ft_putchar_fd(' ', 1);
+			count++;
+			x--;
+		}
+	}
+	return (count);
 }

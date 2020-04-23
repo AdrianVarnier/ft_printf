@@ -42,9 +42,9 @@ int	print_all(va_list va, const char *s)
 
 int	ft_printf(const char *s, ...)
 {
-	va_list va;
+	va_list	va;
 	int		ret;
-	
+
 	va_start(va, s);
 	ret = print_all(va, s);
 	va_end(va);

@@ -15,7 +15,7 @@
 int	ft_strlen(const char *s)
 {
 	int i;
-	
+
 	if (s == NULL)
 		return (6);
 	i = 0;

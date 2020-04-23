@@ -48,7 +48,7 @@ int	print_pre(t_list *param)
 	{
 		x = param->pre - param->len;
 		while (x > 0)
-		{	
+		{
 			ft_putchar_fd('0', 1);
 			count++;
 			x--;
