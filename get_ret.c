@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 12:07:20 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 12:22:04 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/04/24 11:06:57 by arcadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,13 @@ int	get_ret(const char *s)
 	count = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == '%' && s[i + 1] == '%')
-		{
-			i++;
-			count++;
-		}
-		else if (s[i] == '%')
+		if (s[i] == '%')
 		{
 			i++;
 			while (ft_isalpha(s[i]) == 0 && s[i] != '%')
 				i++;
+			if (s[i] == '%')
+				count++;
 		}
 		else
 			count++;

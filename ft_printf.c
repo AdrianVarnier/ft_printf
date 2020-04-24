@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 18:02:52 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/11 14:57:58 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/04/24 11:12:57 by arcadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 int	print_all(va_list va, const char *s)
 {
 	int i;
+	int	y;
 	int ret;
 
 	i = 0;
 	ret = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == '%' && s[i + 1] == '%')
+		if (s[i] == '%')
 		{
-			i++;
-			ft_putchar_fd('%', 1);
-		}
-		else if (s[i] == '%')
-		{
-			ret = ret + print(va, s + i);
+			y = i;
 			i++;
 			while (ft_isalpha(s[i]) == 0 && s[i] != '%')
 				i++;
+			if (s[i] == '%')
+				ft_putchar_fd('%', 1);
+			if (ft_isalpha(s[i]) == 1)
+				ret = ret + print(va, s + y);
 		}
 		else
 			ft_putchar_fd(s[i], 1);

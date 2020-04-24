@@ -47,7 +47,7 @@ int main(void)
 		ft_printf("p36 %.0u\n", 0);
 		ft_printf("%%\n");
 		ft_printf("Hello 42 school! %s\n", NULL);
-//		ft_printf("%010%\n");
+		ft_printf("%010%\n");
 		ft_printf("%d\n", 2147483647);
 		ft_printf("%x\n", 2147483647);
 		ft_printf("%X\n", 2147483647);
@@ -135,10 +135,10 @@ int main(void)
 		ft_printf("04 Test de chiffre sans h : %d, et %d\n", 432767, -432767);
 		ft_printf("31 This is an int : %.0d\n", 0);
 		ft_printf("32 This is an int : %0d\n", 0);
-//		ft_printf("percent 1 %012%\n");
-//		ft_printf("percent 2 %12%\n");
-//		ft_printf("percent 3 %-12%\n");
-//		ft_printf("percent 4 %0%\n");
+		ft_printf("percent 1 %012%\n");
+		ft_printf("percent 2 %12%\n");
+		ft_printf("percent 3 %-12%\n");
+		ft_printf("percent 4 %0%\n");
 		ft_printf("%d\n", t);
 		ft_printf("%d\n", t);
 		ft_printf("%d\n", t);
