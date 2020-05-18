@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:28:44 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/12 16:39:53 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/05/18 12:01:56 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,11 @@ static int	get_pre(va_list va, const char *s, t_list *param)
 		return (0);
 	}
 	if (s[i] == '*')
+	{
 		param->pre = va_arg(va, int);
+		if (param->pre < 0)
+			param->p = 0;
+	}
 	else if (ft_isdigit(s[i]) != 0)
 		param->pre = ft_atoi(s + 1);
 	while (s[i] == '*' || ft_isdigit(s[i]) != 0)

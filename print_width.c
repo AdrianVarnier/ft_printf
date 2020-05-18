@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 18:48:26 by avarnier          #+#    #+#             */
-/*   Updated: 2020/04/23 18:48:54 by arcadia          ###   ########.fr       */
+/*   Updated: 2020/05/18 14:57:49 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,12 @@ int			print_swid(t_list *param)
 	count = 0;
 	if (param->flag == '-')
 		return (0);
-	if ((param->wid >= param->pre && param->p == 1) ||
-	(param->wid > param->len && param->p == 0))
+	if (param->wid > param->len)
 	{
 		if (param->pre > param->len || param->p == 0)
 			x = param->wid - param->len;
 		else if (param->p == 1 && param->s == 0)
-			x = param->wid;
+			x = param->wid - param->len;
 		else
 			x = param->wid - param->pre;
 		while (x > 0)
@@ -108,13 +107,12 @@ int			print_snegwidth(t_list *param)
 	count = 0;
 	if (param->flag != '-')
 		return (0);
-	if ((param->wid >= param->pre && param->p == 1) ||
-	(param->wid > param->len && param->p == 0))
+	if (param->wid > param->len)
 	{
 		if (param->pre > param->len || param->p == 0)
 			x = param->wid - param->len;
 		else if (param->p == 1 && param->s == 0)
-			x = param->wid;
+			x = param->wid - param->len;
 		else
 			x = param->wid - param->pre;
 		while (x > 0)
