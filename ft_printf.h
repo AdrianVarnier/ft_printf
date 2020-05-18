@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:24:07 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/12 13:29:16 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/05/18 17:35:50 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int				ft_putadr_fd(unsigned long n, int fd,
 				char *base, t_list *param);
 int				ft_puthex_fd(unsigned int n, int fd, char *base, t_list *param);
 int				ft_putuns_fd(unsigned int n, int fd, t_list *param);
-int				hexlen(unsigned int n);
+int				hexlen(unsigned int n, t_list *param);
 int				adrlen(unsigned long n);
-int				unslen(unsigned int n);
+int				unslen(unsigned int n, t_list *param);
 int				nbrlen(int n, t_list *param);
 void			get_len(va_list va, t_list *param);
 int				print_pre(t_list *param);

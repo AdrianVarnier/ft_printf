@@ -3,8 +3,8 @@
 
 int main()
 {
-	char	*s = NULL;
-	printf("%d\n", printf("-->|%-16.s|<--\n", s));
-	printf("%d\n", ft_printf("-->|%-16.s|<--\n", s));
+	int	u = 1;
+	printf("%d\n", printf("t-->|%0*.1u|<--\n", 5, u));
+	printf("%d\n", ft_printf("f-->|%0*.1u|<--\n", 5, u));
 	return (0);
 }

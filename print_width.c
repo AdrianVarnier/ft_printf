@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 18:48:26 by avarnier          #+#    #+#             */
-/*   Updated: 2020/05/18 14:57:49 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/05/18 17:47:25 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int			print_numwid(t_list *param)
 	count = 0;
 	if (param->flag == '-' || param->sign == '-')
 		return (0);
-	if (param->flag == '0')
+	if (param->flag == '0' && param->p == 0)
 		c = '0';
 	if (param->wid > param->pre && param->wid > param->len)
 	{

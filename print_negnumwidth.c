@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 18:46:18 by avarnier          #+#    #+#             */
-/*   Updated: 2020/05/18 13:45:29 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/05/18 15:38:06 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			print_negnumwid(t_list *param)
 	{
 		if (param->pre > param->len)
 			x = param->wid - param->pre - 1;
-		if (param->len > param->pre)
+		else
 			x = param->wid - param->len - 1;
 		while (x > 0)
 		{
@@ -71,7 +71,7 @@ int			print_negnum_negwidth(t_list *param)
 	{
 		if (param->pre > param->len)
 			x = param->wid - param->pre - 1;
-		if (param->len > param->pre)
+		else
 			x = param->wid - param->len - 1;
 		while (x > 0)
 		{

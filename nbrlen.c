@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 10:23:39 by avarnier          #+#    #+#             */
-/*   Updated: 2020/03/12 13:55:36 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/05/18 17:36:43 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	nbrlen(int n, t_list *param)
 	int	count;
 
 	count = 0;
+	if (param->p == 1 && param->pre == 0 && n == 0)
+		return (0);
 	if (n == 0)
 		return (1);
 	if (n < 0)
@@ -32,11 +34,13 @@ int	nbrlen(int n, t_list *param)
 	return (count);
 }
 
-int	unslen(unsigned int n)
+int	unslen(unsigned int n, t_list *param)
 {
 	int count;
 
 	count = 0;
+	if (param->p == 1 && param->pre == 0 && n == 0)
+		return (0);
 	if (n == 0)
 		return (1);
 	while (n > 0)
@@ -47,11 +51,13 @@ int	unslen(unsigned int n)
 	return (count);
 }
 
-int	hexlen(unsigned int n)
+int	hexlen(unsigned int n, t_list *param)
 {
 	int count;
 
 	count = 0;
+	if (param->p == 1 && param->pre == 0 && n == 0)
+		return (0);
 	if (n == 0)
 		return (1);
 	while (n > 0)
@@ -69,8 +75,6 @@ int	adrlen(unsigned long n)
 	count = 0;
 	if (n == 0)
 		return (5);
-	if (n == 0)
-		return (1);
 	while (n > 0)
 	{
 		n = n / 16;
