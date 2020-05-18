@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:24:07 by avarnier          #+#    #+#             */
-/*   Updated: 2020/05/18 18:24:10 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/05/18 18:49:13 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct	s_list
 {
 	int				wid;
+	int				a;
 	int				s;
 	int				p;
 	int				pre;
@@ -40,10 +41,10 @@ int				ft_strlen(const char *s);
 int				ft_strlen_param(const char *s, t_list *param);
 int				ft_putstr_fd(char *s, int fd, int max, int p);
 int				ft_putnbr_fd(int n, int fd, t_list *param);
-int				ft_puthex_fd(unsigned long n, int fd, char *base, t_list *param);
+int				ft_puthex_fd(unsigned int n, int fd, char *base, t_list *param);
 int				ft_putuns_fd(unsigned int n, int fd, t_list *param);
 int				hexlen(unsigned int n, t_list *param);
-int				adrlen(unsigned long n);
+int				adrlen(unsigned long n, t_list *param);
 int				unslen(unsigned int n, t_list *param);
 int				nbrlen(int n, t_list *param);
 void			get_len(va_list va, t_list *param);
@@ -57,5 +58,6 @@ int				print_negnumwid(t_list *param);
 int				get_ret(const char *s);
 int				print(va_list va, const char *s);
 int				print_all(va_list va, const char *s);
+int				ft_putadr_fd(unsigned long n, int fd, char *base, t_list *param);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 10:23:39 by avarnier          #+#    #+#             */
-/*   Updated: 2020/05/18 18:24:47 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/05/18 18:48:20 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,17 @@ int	hexlen(unsigned int n, t_list *param)
 	return (count);
 }
 
-int	adrlen(unsigned long n)
+int	adrlen(unsigned long n, t_list *param)
 {
 	int count;
 
 	count = 0;
+	param->a = 1;
 	if (n == 0)
+	{
+		param->a = 0;
 		return (5);
+	}
 	while (n > 0)
 	{
 		n = n / 16;
