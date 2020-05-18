@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 10:23:39 by avarnier          #+#    #+#             */
-/*   Updated: 2020/05/18 17:36:43 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/05/18 18:24:47 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,5 @@ int	adrlen(unsigned long n)
 		n = n / 16;
 		count++;
 	}
-	return (count);
+	return (count + 2);
 }
