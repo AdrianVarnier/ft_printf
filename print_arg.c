@@ -32,6 +32,8 @@ int	print_arg(va_list va, t_list *param)
 		return (ft_putadr_fd(va_arg(va, unsigned long),
 		1, "0123456789abcdef", param) + 2);
 	}
+	if (param->type == '%')
+		return (ft_putchar_fd('%', 1));
 	return (0);
 }
 
@@ -65,7 +67,7 @@ int	print(va_list va, const char *s)
 
 	param = get_param(va, s);
 	get_len(va, param);
-	if (param->type == 's')
+	if (param->type == 's' || param->type == '%')
 	{
 		ret = print_swid(param);
 		ret = ret + print_arg(va, param);

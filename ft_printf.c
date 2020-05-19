@@ -28,10 +28,7 @@ int	print_all(va_list va, const char *s)
 			i++;
 			while (ft_isalpha(s[i]) == 0 && s[i] != '%')
 				i++;
-			if (s[i] == '%')
-				ft_putchar_fd('%', 1);
-			if (ft_isalpha(s[i]) == 1)
-				ret = ret + print(va, s + y);
+			ret = ret + print(va, s + y);
 		}
 		else
 			ft_putchar_fd(s[i], 1);

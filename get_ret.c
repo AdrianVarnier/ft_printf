@@ -26,8 +26,6 @@ int	get_ret(const char *s)
 			i++;
 			while (ft_isalpha(s[i]) == 0 && s[i] != '%')
 				i++;
-			if (s[i] == '%')
-				count++;
 		}
 		else
 			count++;

@@ -83,7 +83,7 @@ int			print_swid(t_list *param)
 		return (0);
 	if (param->wid > param->len)
 	{
-		if (param->pre > param->len || param->p == 0)
+		if (param->pre > param->len || param->p == 0 || param->type == '%')
 			x = param->wid - param->len;
 		else if (param->p == 1 && param->s == 0)
 			x = param->wid - param->len;
@@ -109,7 +109,7 @@ int			print_snegwidth(t_list *param)
 		return (0);
 	if (param->wid > param->len)
 	{
-		if (param->pre > param->len || param->p == 0)
+		if (param->pre > param->len || param->p == 0 || param->type == '%')
 			x = param->wid - param->len;
 		else if (param->p == 1 && param->s == 0)
 			x = param->wid - param->len;

@@ -30,5 +30,7 @@ void	get_len(va_list va, t_list *param)
 		param->len = hexlen(va_arg(cpy, int), param);
 	if (param->type == 'p')
 		param->len = adrlen(va_arg(cpy, unsigned long), param);
+	if (param->type == '%')
+		param->len = 1;
 	va_end(cpy);
 }
