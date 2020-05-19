@@ -20,7 +20,6 @@
 typedef struct	s_list
 {
 	int				wid;
-	int				a;
 	int				s;
 	int				p;
 	int				pre;

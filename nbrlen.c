@@ -73,12 +73,8 @@ int	adrlen(unsigned long n, t_list *param)
 	int count;
 
 	count = 0;
-	param->a = 1;
-	if (n == 0)
-	{
-		param->a = 0;
-		return (5);
-	}
+	if (n == 0 && ((param->pre != 0 && param->p == 1) || param->p == 0))
+		count++;
 	while (n > 0)
 	{
 		n = n / 16;

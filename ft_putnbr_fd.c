@@ -39,11 +39,6 @@ int	ft_putadr_fd(unsigned long n, int fd, char *base, t_list *param)
 	int				i;
 
 	i = 0;
-	if (param->type == 'p' && n == 0)
-	{
-		ft_putstr_fd("(nil)", 1, 0, 0);
-		return (3);
-	}
 	if (n == 0 && param->p == 1 && param->pre == 0)
 		return (0);
 	if (n >= 16)
