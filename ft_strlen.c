@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 15:08:12 by avarnier          #+#    #+#             */
-/*   Updated: 2020/05/18 14:42:54 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:05:36 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strlen(const char *s)
 int	ft_strlen_param(const char *s, t_list *param)
 {
 	int i;
-	
+
 	if (s == NULL)
 	{
 		param->s = 0;

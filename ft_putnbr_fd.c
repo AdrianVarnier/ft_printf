@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 15:20:13 by avarnier          #+#    #+#             */
-/*   Updated: 2020/05/18 18:43:45 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:04:48 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	ft_putadr_fd(unsigned long n, int fd, char *base, t_list *param)
 	i++;
 	return (i);
 }
-
 
 int	ft_puthex_fd(unsigned int n, int fd, char *base, t_list *param)
 {

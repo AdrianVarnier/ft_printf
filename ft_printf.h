@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:24:07 by avarnier          #+#    #+#             */
-/*   Updated: 2020/05/18 18:49:13 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/01/25 12:02:48 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int				print_negnumwid(t_list *param);
 int				get_ret(const char *s);
 int				print(va_list va, const char *s);
 int				print_all(va_list va, const char *s);
-int				ft_putadr_fd(unsigned long n, int fd, char *base, t_list *param);
+int				ft_putadr_fd(unsigned long n, int fd,
+				char *base, t_list *param);
 
 #endif
